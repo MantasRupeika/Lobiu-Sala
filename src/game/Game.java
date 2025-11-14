@@ -10,7 +10,7 @@ public class Game {
 
     public void start() {
         System.out.println("Lobiu sala!");
-        map = new Map(3, 3);
+        map = new Map(4, 4);
         player = new Player(5, 0);
 
         while (!gameOver) {
@@ -40,7 +40,7 @@ public class Game {
                 }
 
                 if (player.isAtStart() && player.hasTreasure()) {
-                    System.out.println("🏆 Tu grizai su lobiu gyvas! Laimėjai!");
+                    System.out.println("🏆 Tu grizai su lobiu gyvas! Laimejai!");
                     gameOver = true;
                 }
 

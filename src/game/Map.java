@@ -17,10 +17,21 @@ public class Map {
     private void generate() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                boolean hasTrap = random.nextInt(100) < 15; // 15% sansas Trap'ui
-                boolean hasTreasure = (x == width - 1 && y == height - 1); // Paskutinis sektorius
-                boolean hasRPSGame = random.nextInt(100) < 20; // 20% šansas RPS
-                sectors[y][x] = new Sector(x, y, hasTrap, hasTreasure, hasRPSGame);
+                boolean hasTreasure = (x == width - 1 && y == height - 1); // paskutinis sektorius
+                boolean hasTrap = false;
+                boolean hasRPSGame = false;
+
+                if (!hasTreasure) {
+                    hasTrap = random.nextInt(100) < 15; // 15% sansas trapui
+                    hasRPSGame = random.nextInt(100) < 20; // 20% sansas RPS
+                }
+
+                if (hasTreasure) {
+                    System.out.println("DEBUG: lobis yra -> (" + x + "," + y + ")");
+                }
+
+
+                sectors[y][x] = new Sector(x, y, hasTreasure, hasTrap, hasRPSGame);
             }
         }
     }
@@ -33,18 +44,21 @@ public class Map {
         int x = player.getX();
         int y = player.getY();
 
-        switch (direction) {
+        switch (direction)
+        {
             case "W" -> y--;
             case "S" -> y++;
             case "A" -> x--;
             case "D" -> x++;
-            default -> {
+            default ->
+            {
                 System.out.println("!Netinkamas pasirinkimas!");
                 return false;
             }
         }
 
-        if (x < 0 || y < 0 || x >= width || y >= height) {
+        if (x < 0 || y < 0 || x >= width || y >= height)
+        {
             System.out.println("!Negali eiti uz salos ribu!");
             return false;
         }

@@ -17,7 +17,8 @@ public class RPSGame {
         String computerChoice = choices[random.nextInt(3)].toLowerCase();
         System.out.println("Kompiuteris pasirinko: " + computerChoice);
 
-        if (playerChoice.equals(computerChoice)) {
+        if (playerChoice.equals(computerChoice))
+        {
             System.out.println("Lygiosios!");
             return false;
         }
@@ -27,9 +28,12 @@ public class RPSGame {
                         (playerChoice.equals("paper") && computerChoice.equals("rock")) ||
                         (playerChoice.equals("scissors") && computerChoice.equals("paper"));
 
-        if (win) {
+        if (win)
+        {
             System.out.println("Laimejai RPS!!!");
-        } else {
+        }
+        else
+        {
             System.out.println("Pralaimejai RPS! :((((");
         }
 
