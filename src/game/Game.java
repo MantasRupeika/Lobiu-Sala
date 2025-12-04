@@ -10,7 +10,7 @@ public class Game {
 
     public void start() {
         System.out.println("Lobiu sala!");
-        map = new Map(4, 4);
+        map = new Map(2, 2);
         player = new Player(5, 0);
 
         while (!gameOver) {

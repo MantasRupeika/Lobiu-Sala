@@ -26,13 +26,11 @@ public class Sector {
 
     public void triggerEvent(Player player)
     {
-
         if (hasTreasure) {
             System.out.println("💰 Radai lobi! Dabar grizk į pradzia.");
             player.setHasTreasure(true);
             return;
         }
-
         if (hasRPS) {
             RPSGame rps = new RPSGame();
             boolean win = rps.play();
@@ -42,19 +40,16 @@ public class Sector {
             }
             return;
         }
-
         if (hasTrap) {
             System.out.println("💀 Patekai i spastus! Netenki 1 gyvybes.");
             player.loseHealth(1);
             return;
         }
-
         if (random.nextInt(100) < 30) {
             System.out.println("🍗 Radote maisto! +1 supply");
             player.increaseSupply(1);
             return;
         }
-
         System.out.println("🌴 Tuscias sektorius");
     }
 
